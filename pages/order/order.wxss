@@ -1,0 +1,275 @@
+/* pages/order/order.wxss */
+page{
+  background: #F8F8F8;
+}
+.jg125{
+  width: 100%;
+  height: 145rpx;
+}
+.order-user{
+  width: 100%;
+  font-size: 30rpx;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+}
+.order-user>input{
+  height: 40rpx;
+  border: 1rpx solid #ccc;
+  margin-right: 10rpx;
+  border-radius: 5rpx;
+  padding-left: 10rpx;
+}
+
+.order-user>input:nth-child(2){
+  width: 210rpx;
+}
+.order-user>input:last-child{
+  width: 290rpx;
+}
+.tihuo{
+  font-size: 28rpx;
+  color: #999;
+  padding: 5rpx 0;
+}
+.ziti{
+  font-size: 28rpx;
+  color: #E70012;
+  padding: 5rpx 0;
+  /* display: flex; */
+}
+.ziti image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 5rpx;
+}
+
+.xian{
+  padding-top: 20rpx;
+}
+.xian image{
+  width: 100%;
+  height: 8rpx;
+}
+.jieshao{
+  font-size: 28rpx;
+  color: #999;
+  background: #fff;
+  padding: 20rpx;
+  line-height: 45rpx;
+}
+.jieshao>view>text{
+  color: #E70012;
+}
+.product{
+  padding: 20rpx;
+  background: #fff;
+  margin-top: 20rpx;
+  display: flex;
+}
+.pro-img{
+  width: 180rpx;
+  height: 180rpx;
+  border:1rpx solid #ccc;
+  position: relative;
+}
+.pro-img image{
+  width: 100%;
+  height: 100%;
+}
+.img-dask{
+  width: 100%;
+  height: 35rpx;
+  background: rgba(246, 118, 39, .7);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 24rpx;
+  color: white;
+  text-align: center;
+}
+.pro-text{
+  width: 460rpx;
+  margin-left: 15rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.text-til{
+  font-size: 30rpx;
+}
+.text-num{
+  color: #999;
+  font-size: 26rpx;
+}
+.text-time{
+  font-size: 28rpx;
+  color: #E70012;
+}
+.text-price{
+  font-size: 36rpx;
+  color: #E70012;
+}
+.text-price>text{
+  font-size: 26rpx;
+  color: #999;
+  text-decoration: line-through;
+}
+.number{
+  height: 100%;
+  text-align: right;
+  line-height: 180rpx;
+}
+.add{
+  margin-top: 10rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+  height: 90rpx;
+  align-items: center;
+}
+
+.buyadd{
+  display: flex;
+  width: 250rpx;
+  height: 60rpx;
+  align-items: center;
+  border: 1rpx solid #ccc;
+}
+.val{
+  width: 250rpx;
+  text-align: center;
+}
+/* .buyadd>input{
+  text-align: center;
+} */
+.reduce{
+  width: 60rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  padding: 0 17rpx;
+  border-right: 1rpx solid #ccc;
+}
+.adds{
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-left: 1rpx solid #ccc;
+  padding: 0 17rpx;
+}
+.totalprice{
+  margin-top: 20rpx;
+  padding: 20rpx;
+  text-align: right;
+  background: #fff;
+}
+.totalprice>view{
+  padding: 5rpx 0;
+}
+.totalprice>view:first-child{
+  font-size: 26rpx;
+  color: #999;
+}
+.totalprice>view:first-child>text{
+  color: #E70012;
+}
+.totalprice>view:last-child{
+  font-size: 28rpx;
+  color: #333;
+}
+.totalprice>view:last-child>text{
+  font-size: 34rpx;
+  color: #E70012;
+}
+.formbtn{
+  padding: 20rpx 0;
+  width: 100%; 
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: 1rpx solid #ccc;
+}
+.formbtn>view{
+  width: 90%;
+  height: 85rpx;
+  line-height: 85rpx;
+  text-align: center;
+  color: white;
+  background: #3CB915;
+  margin: 0 auto;
+  border-radius: 15rpx;
+  font-size: 30rpx;
+}
+/* 确认订单 */
+.sure{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.dask{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .4);
+}
+.sure-box{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  text-align: center;
+}
+.box-title{
+  height: 75rpx;
+  line-height: 75rpx;
+  font-size: 30rpx;
+  color: #666;
+  border-bottom: 1rpx solid #ccc;
+}
+.box-selfmention{
+  font-size: 30rpx;
+  color: #E70012;
+  font-weight: 700;
+  padding: 35rpx 10rpx;
+}
+.box-time{
+  font-size: 30rpx;
+  color: #E70012;
+  padding-bottom: 25rpx;
+}
+.box-address{
+  font-size: 30rpx;
+  color: #999;
+  padding: 0 10rpx 30rpx 10rpx;
+}
+.box-address>text{
+  color: #333;
+  font-weight: 700;
+}
+.issure{
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 30rpx;
+}
+.issure>view{
+  width: 320rpx;
+  height: 80rpx;
+  font-size: 30rpx;
+  border-radius: 15rpx;
+  line-height: 80rpx;
+}
+.cancel{
+  border: 2rpx solid #999;
+  color: #999;
+}
+.confirm{
+  border: 2rpx solid #1AAD19;
+  background: #1AAD19;
+  color: white
+}

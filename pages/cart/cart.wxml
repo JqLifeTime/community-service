@@ -1,0 +1,65 @@
+<!-- 购物车有数据的时候 -->
+<view class='hasdata' wx:if="{{cartList.length != 0}}">
+  <!-- <view class='has-title'>编辑</view> -->
+  <!-- 商家店铺 -->
+  <view class='shop' wx:for="{{cartList}}" wx:for-item="i" wx:key="key">
+    <view class='shop-product'>
+      <view class='product'>
+        <view class='pro_t'>
+          <view class='{{i.temp == true ? "prosele" : "prosele nopro"}}' data-index="{{index}}" bindtap='bindChose'>
+            <image wx:if="{{i.temp == true}}" src='../../img/cart-02.png'></image>
+          </view>
+        </view>
+        <view class='pro_l'>
+          <image src='{{baseUrl+i.goodsImage}}'></image>
+        </view>
+        <view class='pro_r'>
+          <view class='title'>{{i.goodsName}}</view>
+          <view class='guige'>{{i.guigeArr}}  {{i.shopGui}}</view>
+          <view class='price'>
+            {{i.shopPrice}}元
+            <view class='jj'>
+              <view class='jian' bindtap='bindReduce' data-index="{{index}}">-</view>
+              <view>{{i.shopNumber}}</view>
+              <view class='jia' bindtap='bindAdd' data-index="{{index}}">+</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部信息 -->
+  <view class='foot'>
+    <view class='allordelete'>
+      <view class='all' bindtap='bindall'>
+        <view wx:if="{{alls == false}}" class='allsel'></view>
+        <image wx:if="{{alls == true}}" src='../../img/cart-02.png'></image>
+        <text>全选</text>
+      </view>
+      <view class='delete' bindtap='bindDelete'>
+        <text>删除</text>
+        <image src='../../img/a_shanchu.png'></image>
+      </view>
+    </view>
+    <view class='total'>
+      <view class='total-datail'>
+        <view>合计：
+          <text>￥{{totalMoney}}</text>
+        </view>
+        <view>不含运费</view>
+      </view>
+      <form bindsubmit='bucart' report-submit='true'>
+        <button class='gobuy' formType="submit">去结算</button>
+      </form>
+    </view>
+  </view>
+</view>
+<!-- 购物车没有数据的时候 -->
+<view class='nulldata' wx:else>
+  <view class='null-img'>
+    <image src='../../img/cart-kong.png'></image>
+  </view>
+  <view class='null-text'>购物车是空的...</view>
+  <navigator open-type='switchTab' url='/pages/index/index' class='null-btn'>去购物</navigator>
+</view>

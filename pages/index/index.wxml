@@ -1,0 +1,105 @@
+<view class='home'>
+  <view class='home-title pad20'>
+    <image src='../../img/title.png'></image>
+    <button class='share' open-type="share">
+      <image src='../../img/share.png'></image>
+    </button>
+  </view>
+  <!-- 商店名称 -->
+  <view class='shop pad20'>
+    <view class='shop-name'>
+      <view class='shop-img'>
+        <image src='{{imgUrl}}{{shopInfo.logo}}'></image>
+      </view>
+      <view class='shop-title'>
+        <view class='s-h3 ellis-m'>{{shopInfo.name}}</view>
+        <view class='s-h4'>{{shopInfo.intro}}</view>
+      </view>
+      <view class='fensi'>
+        <view>{{shopInfo.fanCount}}</view>
+        <view>粉丝数</view>
+      </view>
+      <view class='buyNum'>
+        <view>{{shopInfo.buyCount}}</view>
+        <view>购买指数</view>
+      </view>
+    </view>
+  </view>
+  <!-- 商品table -->
+  <view class='table pad20'>
+    <view class='table-s'>
+      <navigator url='/pages/search/search' class='search'>
+        <image src='../../img/search.png'></image>
+        <text>搜索商品</text>
+      </navigator>
+      <view class='tables-s'>
+        <view wx:for="{{tabList}}" wx:key="tablist" data-index='{{index}}' bindtap='bindScroll'>
+          <image src='{{imgUrl}}{{item.bz_1}}'></image>
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <scroll-view scroll-y scroll-into-view="{{toView}}"> -->
+  <view class='prolist pad20' wx:for="{{shopList}}" wx:key="key">
+    <view class='prolist-title'>
+      <image src='../../img/left.png'></image>
+      <view>{{item.name}}</view>
+      <image src='../../img/right.png'></image>
+    </view>
+    <view class='prolist1' wx:for="{{item.goodslist}}" wx:key="goodslist" wx:for-item="goods" wx:if="{{goods.status != -1}}">
+      <button class='getUI' bindgetuserinfo="getUI" open-type="getUserInfo" wx:if="{{hasUserInfo}}"></button>
+      <navigator url='../productDetail/productDetail?tabindex=0&proId={{goods.gid}}' class='pro-img'>
+        <image src='{{imgUrl}}{{goods.photo_d}}'></image>
+        <view wx:if="{{goods.num == 0}}">
+          <image src='../../img/drak.png'></image>
+        </view>
+      </navigator>
+      <view class='pad20'>
+        <view class='ellis-m protitle'>{{goods.name}}</view>
+        <view class='yushou'>
+          <view class='yushou-l'>
+            <view>预售时间：{{goods.start_time}}</view>
+            <view>提货时间：{{goods.get_time}}</view>
+          </view>
+          <view class='yushou-r'>
+            <view>已售
+              <text>{{goods.renqi}}</text>份/限量{{goods.num}}份</view>
+            <view>累计销售{{goods.renqi}}份
+              <text wx:if="{{goods.maxGoodsNum}}">/每人限购{{goods.maxGoodsNum}}份</text>
+            </view>
+          </view>
+        </view>
+        <view class='price'>
+          <view class='price-1'> ￥{{goods.price_yh}}
+            <text>￥{{goods.price}}</text>
+          </view>
+          <view class='iscart'>
+            <view class='cart' wx:if="{{goods.status == 1}}">火热进行中</view>
+            <view class='yu' wx:if="{{goods.status == 0}}">即将开售</view>
+            <view class='none' wx:if="{{goods.num == 0&&goods.status == 1}}">抢光了</view>
+          </view>
+        </view>
+      </view>
+      <navigator url='../productDetail/productDetail?tabindex=1&proId={{goods.gid}}' class='customer pad20 arrow'>
+          <view class='clist'>
+            <view class='clist1' wx:for="{{goods.buy_history}}" wx:for-item="history">
+              <image src='{{history.image ? history.image:"../../img/avatar.jpg"}}'></image>
+            </view>
+            <view class='clist2'>
+              <image src='../../img/more.png'></image>
+            </view>
+            <text>等购买了此商品</text>
+          </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- </scroll-view> -->
+  <view class='loading' wx:if="{{loading}}">
+    <image src='../../img/loading.gif'></image>
+  </view>
+  <view class='nullloading' wx:else>
+    ———— 亲，我们是有底线的 ————
+  </view>
+
+</view>

@@ -1,0 +1,24 @@
+<view class="nearby">
+  <view class='nearby-title pad20'>
+    <view class='tit-img'>
+      <image src='../../img/address2.png'></image>
+      <text>{{address}}</text>
+    </view>
+    <navigator url='/pages/addAddress/addAddress' class='tit-chose'>选择其他区域门店</navigator>
+  </view>
+  <view class='nearby-tishi pad20'>请选择一个最方便的自提门店（建议距离最近）</view>
+  <view class='nearby-list' wx:if="{{shoplist.length != 0}}">
+    <view class='list1' wx:for="{{shoplist}}" wx:key="key" data-index="{{index}}" data-id="{{item.userId}}" bindtap='choseShop'>
+      <image src='{{imgUrl}}{{item.logo}}'></image>
+      <view class='list1-text'>
+        <view class='text-h3'>{{item.name}}</view>
+        <view class='text-h4'>门店编号：{{item.code}}</view>
+      </view>
+      <view class='m'>
+        <view class='tuijian'>推荐</view>
+        <view class='m1'>{{item.distance}}米</view>
+      </view>
+    </view>
+  </view>
+  <view class='null' wx:else>暂无门店列表信息。。。</view>
+</view>

@@ -1,0 +1,130 @@
+<view class='product'>
+  <view class='pro-table'>
+    <view class='{{tabIndex == 0 ? "active-tab" : ""}}' data-ind="0" bindtap='tabChange'>基本信息</view>
+    <view class='{{tabIndex == 1 ? "active-tab" : ""}}' data-ind="1" bindtap='tabChange'>购买记录</view>
+  </view>
+  <view class='jg80'></view>
+  <!-- 基本信息 -->
+  <view class='detail' wx:if="{{tabIndex == 0}}">
+    <!-- 轮播 -->
+    <view class='banner'>
+      <swiper autoplay="true" circular="true" interval="3000" bindchange='swiperChange'>
+        <swiper-item wx:for="{{imglist}}" wx:key="imglist">
+          <image src='{{imgUrl}}{{item}}'></image>
+        </swiper-item>
+      </swiper>
+      <view class='swiper-indx'>{{swiperIndex+1}} / {{imglist.length}}</view>
+    </view>
+    <!-- 价格 -->
+    <view class='price pad20'>
+      <image src='../../img/timebg.jpg'></image>
+      <view class='price-detail'>
+        <view class='price-text'>
+          ￥{{proDetail.price_yh}}
+          <text> ￥{{proDetail.price}}</text>
+        </view>
+        <view class='time'>
+          <view>距离本商品结束还剩：</view>
+          <view>{{time}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 标题 -->
+    <view class='title pad20'>
+      <view class='title-s'>
+        <view class='titel-l'>
+          <view class='tit-h3'>{{proDetail.name}}</view>
+          <view class='tit-h4'>{{proDetail.intro}}</view>
+        </view>
+        <view class='titel-r'>
+          <view>{{proDetail.fanCount}}</view>
+          <view>关注人数</view>
+        </view>
+      </view>
+    </view>
+    <!-- 预售 -->
+    <view class='yushou'>
+      <view class='yushou-l'>
+        <view>预售时间：{{proDetail.start_time}}</view>
+        <view>提货时间：{{proDetail.get_time}}</view>
+      </view>
+      <view class='yushou-r'>
+        <view class='yishou'>已售
+          <text>{{proDetail.renqi}}</text>份/限量{{proDetail.num}}份</view>
+        <!-- <view class='leiji'>累计销售6550份/每人限购1份</view> -->
+      </view>
+    </view>
+
+    <!-- 图文详情 -->
+    <view class='imgtext'>
+      <view class='imgtext-name'>图文详情</view>
+      <rich-text class='imgtext1 pad20' nodes="{{content}}"></rich-text>
+    </view>
+  </view>
+  <!-- 购买记录 -->
+  <view class='record' wx:else>
+    <view class='rec-title'>目前共
+      <text>{{buyUserlist.length}}</text>人参与购买，商品共销售
+      <text>{{nums}}</text>份</view>
+    <view class='record-list pad20'>
+      <view class='record-list1' wx:for="{{buyUserlist}}" wx:key="buyUserlist">
+        <view class='userinfo'>
+          <image src="{{item.image}}"></image>
+          <text>{{item.nickName}}</text>
+        </view>
+        <view class='buynum'>
+          <text>{{item.num}} </text>份</view>
+        <view class='buytime'>{{item.addtime}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='jg'></view>
+  <view class='bottom'>
+    <view class='tab3'>
+      <view class='tab3-1'>
+        <button open-type='contact'>
+          <image src='../../img/kefu1.png'></image>
+          <text>客服</text>
+        </button>
+      </view>
+      <view class='tab3-1'>
+        <button open-type='share'>
+          <image src='../../img/shopdetails-01.png'></image>
+          <text>分享</text>
+        </button>
+      </view>
+      <view bindtap='bindcart' class='tab3-1'>
+        <button>
+          <image src='../../img/shopdetails-03.png'></image>
+          <text>购物车</text>
+        </button>
+      </view>
+    </view>
+
+    <view class='addcart {{proDetail.num == 0 || proDetail.stillBuyNums ==0 ? "disabled" : ""}}' bindtap='buycart'>加入购物车</view>
+    <view class='buynow {{proDetail.num == 0 || proDetail.stillBuyNums ==0 ? "disabled" : ""}}' bindtap="bindtapMasks">立即购买</view>
+
+  </view>
+</view>
+<view class="mask" style="opacity: {{mask.opacity}}; display: {{mask.display}};">
+  <view class="masks" bindtap="bindtapClose"></view>
+  <view class="mask-shop" style="transform: {{returnDeposit.translateY}}; opacity: {{returnDeposit.opacity}};">
+    <view class='addor'>
+      <view>
+        <image src='{{imgUrl}}{{proDetail.photo_d}}'></image>
+        <view class='add-text'>
+          <text>{{proDetail.name}}</text>
+          <text>x {{numbers}}</text>
+        </view>
+      </view>
+      <view class='buyadd'>
+        <view class='reduce' bindtap='bindReduce'>-</view>
+        <view class='val'>{{numbers}}</view>
+        <view class='adds' bindtap='bindAdds'>+</view>
+      </view>
+    </view>
+    <form bindsubmit='buynow' report-submit='true'>
+      <button class='buybtn' formType="submit">立即购买</button>
+    </form>
+  </view>
+</view>

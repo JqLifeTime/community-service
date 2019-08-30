@@ -1,0 +1,61 @@
+<view class='order pad20'>
+  <view class='order-user'>
+    <text>收货人：</text>
+    <input value='{{user}}' bindinput="bindName" placeholder='您的名字'></input>
+    <input type='number' value='{{phone}}' bindinput="bindTel" placeholder='您的手机号'></input>
+  </view>
+  <view class='tihuo'>提货地点：{{address.address}}</view>
+  <view class='ziti'>自提点：{{address.name}}<text bindtap='bindSelf'>{{address.tel}}</text><image src='../../img/now_tell.png'></image></view>
+</view>
+<view class='xian'>
+  <image src='../../img/address-bottom.png'></image>
+</view>
+<view class="jieshao">
+  <view>1.如果您购买的商品有任何问题，请直接与购买的门店联系!100%售后保证!</view>
+  <view>2.如果您找不到购物的提货门店，请致电{{config.name}}客服热线!<text bindtap='bindhohu'>{{config.tel}}</text></view>
+</view>
+<view class='product' wx:for="{{orderList}}">
+  <view class='pro-img'>
+    <image src='{{imgUrl}}{{item.goodsImage}}'></image>
+    <!-- <view class='img-dask'>{{}}</view> -->
+  </view>
+  <view class='pro-text'>
+    <view class='text-til'>{{item.goodsName}}</view>
+    <view class='text-num'>{{item.shopNumber}}份</view>
+    <view class='text-time'>{{item.proTime}}提货</view>
+    <view class='text-price'>￥{{item.shopPrice}} <text> ￥{{item.shopPricebig}} </text></view>
+  </view>
+  <view class='number'>
+    x{{item.shopNumber}}
+  </view>
+</view>
+
+<!-- <view class='add pad20' wx:if="{{type == 'buynow'}}">
+  <view class='buynum'>购买数量</view>
+  <view class='buyadd'>
+    <view class='reduce' bindtap='bindReduce'>-</view>
+    <view class='val'>{{orderList[0].shopNumber}}</view>
+    <view class='adds' bindtap='bindAdds'>+</view>
+  </view>
+</view> -->
+<view class='totalprice'>
+  <view>共{{totalNum}}件商品 合计：<text> ￥{{totalMoney}}</text></view>
+  <view>应付金额：<text> ￥{{totalMoney}}</text></view>
+</view>
+<view class='jg125'></view>
+<view class='formbtn'>
+  <view bindtap='bindshow'>提交订单</view>
+</view>
+<view class='sure' wx:if="{{isshowbox}}">
+  <view class='dask' bindtap='bindhide'></view>
+  <view class='sure-box'>
+    <view class='box-title'>此商品需要您到店自提，请仔细确认地址！</view>
+    <view class='box-selfmention'>自提点：{{address.name}}{{address.tel}}</view>
+    <view class='box-time'>{{orderList[0].proTime}}提货</view>
+    <view class='box-address'>提货地点：<text>{{address.address}}</text></view>
+    <view class='issure'>
+      <view class='cancel' bindtap='bindhide'>取消付款</view>
+      <view class='confirm' bindtap='buynow'>立即支付</view>
+    </view>
+  </view>
+</view>

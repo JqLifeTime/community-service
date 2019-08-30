@@ -1,0 +1,79 @@
+<view class='geRenZhongXin'>
+<!-- 头部start -->
+<view class='top'>
+  <image src='../../img/userbg.jpg'></image>
+  <view class='top-cen'>
+    <view class='yongHu'>
+      <button class='getUI' bindgetuserinfo="getUI" open-type="getUserInfo"></button>
+      <view class='yh-img'>
+        <image src='{{userInfo.avatarUrl ? userInfo.avatarUrl : "../../img/avatar.jpg"}}'></image>
+      </view>
+      <view class='yh-text'>
+        <view class='ellis-m'>{{userInfo.nickName ? userInfo.nickName : "昵称"}}</view>
+        <view>{{phone}}</view>
+      </view>
+    </view>
+    <view class='erWeiMa' bindtap='bindEwmshow'>
+      <view>
+        <image src='../../img/ewm.png'></image>
+      </view>
+      <view>提货二维码</view>
+    </view>
+  </view>
+</view>
+<!-- 头部end -->
+<!-- 订单start -->
+  <view class='dingDan'>
+    <view class='dingDan-top'>我的订单</view>
+    <view class='dingDan-bottom'>
+      <navigator url='/pages/orderlist/orderlist?currentTab=0&otype='>
+        <image src='../../img/allorder.png' mode='aspectFit'></image>
+        <view>全部订单</view>
+      </navigator>
+      <navigator url='/pages/orderlist/orderlist?currentTab=1&otype=0'>
+        <image src='../../img/weifukuan.png' mode='aspectFit'></image>
+        <view>未付款</view>
+      </navigator>
+      <navigator url='/pages/orderlist/orderlist?currentTab=2&otype=10'>
+        <image src='../../img/waite.png' mode='aspectFit'></image>
+        <view>待提货</view>
+      </navigator>
+      <navigator url='/pages/orderlist/orderlist?currentTab=3&otype=20'>
+        <image src='../../img/yitihuo.png' mode='aspectFit'></image>
+        <view>已提货</view>
+      </navigator>
+    </view>
+  </view>
+<!-- 订单end -->
+<!-- 地址start -->
+  <view class='diZhi'>
+    <view class='diZhi-top'>
+      <view>我的当前自提点</view>
+      <navigator url='/pages/selfmention/selfmention' class='arrow1'>切换自提点</navigator>
+    </view>
+    <view class='diZhi-center'>
+      <view>{{address.name}}</view>
+      <view>{{address.address}}</view>
+    </view>
+    <view class='diZhi-bottom'>
+      <view bindtap='bindSelf'>
+        自提点电话：<text>{{address.tel}}</text>
+        <image src='../../img/tell.png'></image>
+      </view>
+    </view>
+  </view>
+<!-- 地址end -->
+<!-- bottom start -->
+  <view class='shouHou'>1.如果您购买的商品有任何问题，请直接与购买的门店联系！100%售后保证！</view>
+  <view class='reXian'>2.如果您找不到购物的提货门店。请致电{{config.name}}帮忙热线！<text bindtap='bindhohu'>{{config.tel}}</text><image src='../../img/tell.png'></image></view>
+  <navigator open-type='switchTab' url='/pages/index/index' class='gouWu'>去购物</navigator>
+  <!-- <view class='gouWu'><button>去购物</button></view> -->
+<!-- bottom end -->
+</view>
+<view class='ewm-box' bindtap='bindEwm' wx:if="{{ewmIsshow}}">
+  <view class='ewm-img'>
+    <image src='../../img/userewm.png'></image>
+  </view>
+</view>
+<view></view>
+ 

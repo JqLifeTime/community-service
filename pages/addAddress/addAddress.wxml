@@ -1,0 +1,22 @@
+<view class="search pad20">
+  <view class='chose' bindtap='choseaddress'>
+    <image src='../../img/address.png'></image>
+    <text>附近门店</text>
+  </view>
+  <view class='s-inp'>
+    <input bindinput='bindInput'></input>
+  </view>
+  <view class='search-s' bindtap='bindSearch'>搜索</view>
+</view>
+<view class='search-list' wx:if="{{shoplist.length != 0}}">
+  <view class='list1' wx:for="{{shoplist}}" wx:key="key" data-index="{{index}}" data-id="{{item.userId}}" bindtap='choseShop'>
+    <image src='{{imgUrl}}{{item.logo}}'></image>
+    <view class='list1-text'>
+      <view class='text-h3'>{{item.name}}</view>
+      <view class='text-h4'>门店编号：{{item.code}}</view>
+    </view>
+  </view>
+</view>
+<view class='null' wx:else>
+  暂无门店列表信息...
+</view>

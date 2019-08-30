@@ -1,0 +1,267 @@
+/* pages/cart/cart.wxss */
+.nulldata{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.null-img{
+  width: 250rpx;
+  height: 250rpx;
+}
+.null-img>image{
+  width: 100%;
+  height: 100%;
+}
+.null-text{
+  font-size: 28rpx;
+  color: #999;
+  padding: 45rpx 0;
+}
+.null-btn{
+  width: 200rpx;
+  height: 65rpx;
+  border: 2rpx solid #EB1C27;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 65rpx;
+  color: #EB1C27;
+  font-size: 30rpx;
+}
+.has-title{
+  padding: 0 30rpx;
+  height: 70rpx;
+  text-align: right;
+  background: #E7000C;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  color: white;
+}
+/* pages/cart/cart.wxss */
+page{
+  background: #F0F0F0;
+}
+.shop{
+  /* margin-top: 20rpx; */
+  /* border-bottom: 1rpx solid #ccc */
+}
+.shop-title{
+  width: 100%;
+  height: 86rpx;
+  line-height: 86rpx;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+}
+.shop-product{
+  padding: 20rpx 20rpx 0 20rpx;
+}
+.nosele{
+  border: 1px solid #cbcbcb;
+  margin: 21rpx 20rpx 20rpx 24rpx;
+  box-sizing: border-box;
+}
+.shopsele{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin: 10rpx 20rpx 10rpx 24rpx;
+}
+.shopsele>image{
+  width: 100%;
+  height: 100%;
+}
+.product{
+  padding: 20rpx 20rpx 20rpx 0;
+  display: flex;
+  height: 180rpx;
+  background: #fff;
+  border-radius: 10rpx;
+}
+.product .pro_l{
+  width: 180rpx;
+  height: 180rpx;
+}
+.pro_l image{
+  width: 100%;
+  height: 100%;
+  border: 1rpx solid #ccc;
+  box-sizing: border-box;
+}
+.prosele{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 20rpx;
+}
+.prosele image{
+  width: 100%;
+  height: 100%;
+}
+.pro_t{
+  display: flex;
+  align-items: center;
+}
+.nopro{
+  border: 1rpx solid #ccc;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.title{
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+ -webkit-line-clamp: 2;
+ -webkit-box-orient: vertical;
+  font-size: 30rpx;
+  color: #333;
+}
+.pro_r{
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400rpx;
+}
+
+.guige{
+  font-size: 28rpx;
+  color: #666;
+}
+.price{
+  font-size: 30rpx;
+  color: #ff0000;
+  display: flex;
+  justify-content: space-between;
+}
+.jj{
+  display: flex;
+}
+.jj view{
+  width: 45rpx;
+  height: 45rpx;
+  text-align: center;
+  line-height: 40rpx;
+  margin: 0 8rpx;
+}
+.jian{
+  border-radius: 50%;
+  border: 1rpx solid #E7000C;
+  color: #E7000C;
+  box-sizing: border-box;
+}
+.jia{
+  border-radius: 50%;
+  background: #E7000C;
+  color: #fff;
+}
+.jj view:nth-child(2){
+  width: 60rpx;
+}
+/*空页面*/
+.cart-kong{
+  width: 100%;
+  height: 100vh;
+}
+.cart-kong>image{
+  width: 300rpx;
+  height: 300rpx;
+  margin: 300rpx 225rpx 30rpx 225rpx;
+}
+.cart-kong>view:nth-child(2){
+  font-size: 32rpx;
+  color: #333;
+  text-align: center;
+}
+.cart-kong>view:last-child{
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 15rpx;
+  text-align: center;
+}
+.carts-dianpu{
+  flex: 1;
+  display: flex;
+}
+
+/* 底部信息 */
+.foot{
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  border-top: 1rpx solid #ccc;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.all{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  color: #999;
+}
+.all image{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 20rpx;
+}
+.all .allsel{
+  width: 40rpx;
+  height: 40rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 50%;
+  box-sizing: border-box;
+  margin: 0 20rpx;
+}
+.total{
+  font-size: 26rpx;
+  color:#999; 
+  height: 100rpx;
+  display: flex;
+}
+.total-datail{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+.total-datail>view>text{
+  font-size: 32rpx;
+  color: #E7000C;
+}
+.gobuy{
+  width: 180rpx;
+  height: 100rpx;
+  background: #E7000C;
+  font-size: 30rpx;
+  color: white;
+  margin-left: 15rpx;
+  text-align: center;
+  line-height: 100rpx;
+  border-radius: 0;
+}
+.gobuy::after{
+  border: 0;
+}
+.allordelete{
+  display: flex;
+}
+.delete{
+  display: flex;
+  height: 100rpx;
+  align-items: center;
+  font-size: 28rpx;
+  margin-left: 35rpx;
+  color: #666666;
+}
+.delete image{
+  width: 25rpx;
+  height: 25rpx;
+  margin-left: 5rpx;
+}

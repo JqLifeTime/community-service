@@ -1,0 +1,18 @@
+<!--pages/login/login.wxml-->
+<view class='login'>
+  <view class='padd20'>
+    <view class='padd20-1'>
+      <view class='padd20-2'>
+        <view class='login-img'>
+          <image src='{{imgUrl}}{{config.logo}}'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='login-text'>
+    <view>{{config.name}}</view>
+    <view>{{config.describe}}</view>
+  </view>
+  <button class='login-btn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信一键登录</button>
+</view>
+

@@ -1,0 +1,266 @@
+/* pages/geRenZhongXin.wxss */
+
+.geRenZhongXin{
+   background: #E9ECF0;
+}
+.top{
+  background: #EB1C27;
+  height: 280rpx;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.getUI{
+  width: 380rpx;
+  height: 100rpx;
+  background: #EB1C27;
+  padding: 0;
+  margin: 0;
+  border: none;
+  position: absolute;
+  top: 42rpx;
+  left: 40rpx;
+  opacity: 0;
+}
+.getUI::after{
+  border: none;
+}
+
+.top>image{
+  width: 100%;
+  height: 100%;
+}
+.top-cen{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.yongHu{
+  width: 380rpx;
+  height: 100rpx;
+  margin: 40rpx 0 0 40rpx;
+  display: flex;
+}
+.yh-img{
+  width: 100rpx;
+  height: 100rpx;
+}
+.yh-img>image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: solid 2rpx #ffffff;
+}
+
+.yh-text{
+  width: 250rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: white;
+  margin-left: 20rpx;
+}
+.yh-text>view:first-child{
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.yh-text>view:last-child{
+  font-size: 30rpx;
+}
+.erWeiMa{
+  height: 100rpx;
+  width: 250rpx;
+  background: rgba(0, 0, 0, 0.2);
+  margin-top: 40rpx;
+  border-radius: 50rpx 0 0 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.erWeiMa view:first-child{
+  width: 38rpx;
+  height: 38rpx;
+  margin-right: 15rpx;
+}
+.erWeiMa view:first-child>image{
+  width: 100%;
+  height: 100%;
+}
+.erWeiMa view:last-child{
+  line-height: 100rpx;
+  font-size: 25rpx;
+  color: #ffffff;
+}
+
+.dingDan{
+  padding: 0 30rpx;
+  width: 88%;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 5px;
+  margin-bottom:20rpx;
+  position: relative;
+  top: -84rpx;
+}
+.dingDan-top{
+  padding:20rpx 0;
+  border-bottom: solid 1px #D9D9D9;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.dingDan-bottom{
+  width: 100%;
+  display: flex;
+}
+.dingDan-bottom>navigator{
+  flex: 1;
+  padding: 30rpx 0;
+  font-size: 28rpx;
+  text-align: center;
+}
+.dingDan-bottom image{
+  width: 100%;
+  height: 45rpx;
+}
+.dingDan-bottom>navigator>view{
+  padding-top: 18rpx;
+  color: #686868;
+}
+.diZhi{
+  padding: 0 30rpx;
+  width: 88%;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 5px;
+  position: relative;
+  top: -84rpx;
+}
+.diZhi-top{
+  display: flex;
+  justify-content: space-between;
+  padding:20rpx 0;
+  border-bottom: solid 1rpx #D9D9D9;
+  font-size: 32rpx;
+}
+.diZhi-top>navigator{
+  color: #fd9905;
+  font-size: 28rpx;
+  position: relative;
+  top: 5rpx;
+}
+
+.diZhi-center{
+  padding:20rpx 0;
+  border-bottom: solid 1rpx #D9D9D9;
+}
+.diZhi-center>view:first-child{
+  color: #EB1C27;
+  font-size: 32rpx;
+  padding-bottom: 20rpx;
+}
+.diZhi-center>view:last-child{
+  color: #999;
+  font-size: 28rpx;
+}
+.diZhi-bottom{
+  font-size: 33rpx;
+   padding:20rpx 0;
+}
+.diZhi-bottom text{
+  color: #fd9905;
+}
+.diZhi-bottom image{
+  width: 29rpx;
+  height: 29rpx;
+  position: relative;
+  top: 4px;
+  left: 4rpx;
+}
+.shouHou{
+  padding:30rpx;
+  width: 88%;
+  margin: auto;
+  color: #B3B6BE;
+  font-size: 25rpx;
+  line-height: 40rpx;
+  position: relative;
+  top: -84rpx;
+}
+.reXian{
+  padding:0 30rpx 80rpx 30rpx;
+  width: 88%;
+  margin: auto;
+  color: #B3B6BE;
+  font-size: 25rpx;
+  line-height: 40rpx;
+  position: relative;
+  top: -84rpx;
+}
+.reXian image{
+  width: 25rpx;
+  height: 25rpx;
+  position: relative;
+  top: 4px;
+  left: 4px;
+}
+.gouWu{
+  margin: 0 auto 20rpx auto;
+  position: relative;
+  top: -84rpx;
+  width: 95%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 60rpx;
+  background: #EB1C27;
+  color: #ffffff;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+
+/* .gouWu button::after,.tuiChu button::after{
+  border: none
+} */
+.tuiChu{
+  margin: 0 auto;
+  position: relative;
+  top: -84rpx;
+  width: 95%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 60rpx;
+  border: 0;
+  background: #F7FBFE;
+  color: #B3B6BE;
+  font-size: 30rpx;
+  text-align: center;
+}
+.tuiChu button{
+  
+}
+.ewm-box{
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ewm-img{
+  width: 280rpx;
+  height: 280rpx;
+  padding: 5rpx;
+  background: #fff;
+}
+.ewm-img>image{
+  width: 100%;
+  height: 100%;
+}

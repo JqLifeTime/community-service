@@ -1,0 +1,45 @@
+<!--pages/order/detail.wxml-->
+<loading wx:if="{{showLoading}}">加载中</loading>
+<view class="w100">
+  <view class='clear cont_wrap df' bindtap='comment' data-pid='{{item.pid}}' wx:for="{{proData.goodsList}}" wx:key="item">
+    <navigator url="../product/detail?productId={{item.goodsId}}" hover-class="changestyle">
+      <image class="sh_slt" src="{{imgUrl}}{{item.goodsThumbs}}"></image>
+    </navigator>
+    <view class='cont_c fl_l'>
+      <view class="goods_name">{{item.goodsName}}</view>
+    </view>
+    <view class='cont_r fl_r'>
+      <view wx:if="{{orderData.order_type!=2}}" class="goods_price">¥{{item.realPrice}}</view>
+      <!-- <view wx:if="{{orderData.order_type==2}}" class="goods_price">{{item.price}} 积分</view> -->
+      <view class="goods_num">×{{item.goodsNums}}</view>
+    </view>
+  </view>
+
+  <view class="p_all bg_white mt10 font_14">
+    <view class="df">
+      <view class="df_1 c6">
+        <view class="l_h20">收货人：{{proData.userName}}
+          <text class="fl_r mr10">{{proData.userPhone}}</text>
+        </view>
+        <view class="l_h20 mt5">地址：{{proData.userAddress}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="p_all bg_white mt10 c6 l_h20  font_14">
+    <view>
+      订单状态：
+      <text class="red">{{status}}</text>
+    </view>
+    <view>
+      订单编号：{{proData.orderNo}}
+    </view>
+    <view class="mt10">
+      提货时间：{{proData.getTime}}
+    </view>
+  </view>
+
+  <view wx:if="{{orderData.order_type!=2}}" class="zhifu mt10 tc">金额：
+    <span class="font_20 red">¥ {{proData.totalMoney}}</span>
+  </view>
+</view>

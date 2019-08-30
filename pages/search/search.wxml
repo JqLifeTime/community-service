@@ -1,0 +1,54 @@
+<!-- 输入框 -->
+<view class="seek-top">
+  <input type="text" name="" bindinput="bindInput" value="{{inputVal}}" focus="true" placeholder="请输入您想要搜索的内容" placeholder-style="color:#999;" />
+  <view class="seek-t-right" bindtap="bindtapSeek">
+    <view>搜索</view>
+  </view>
+</view>
+<!-- 搜索列表 -->
+<view class='prolist pad20' wx:if="{{searchList.length != 0}}">
+  <view class='prolist1' wx:for="{{searchList}}" wx:key="searchList">
+    <navigator url='../productDetail/productDetail?tabindex=0&proId={{item.id}}' class='pro-img'>
+      <image src='{{imgurl}}{{item.photo_d}}'></image>
+      <view wx:if="{{item.num == 0}}">
+        <image src='../../img/drak.png'></image>
+      </view>
+    </navigator>
+    <view class='pad20'>
+      <view class='ellis-m protitle'>{{item.name}}</view>
+      <view class='price'>
+        <view class='price-1'> ￥{{item.price_yh}} <text>￥{{item.price}}</text></view>
+      </view>
+    </view>
+    <!-- <navigator url='../productDetail/productDetail?tabindex=1' class='customer pad20 arrow'>
+      <view class='clist'>
+        <view class='clist1'>
+          <image src='../../img/banner1.png'></image>
+        </view>
+        <view class='clist1'>
+          <image src='../../img/banner1.png'></image>
+        </view>
+        <view class='clist1'>
+          <image src='../../img/banner1.png'></image>
+        </view>
+        <view class='clist1'>
+          <image src='../../img/banner1.png'></image>
+        </view>
+        <view class='clist1'>
+          <image src='../../img/banner1.png'></image>
+        </view>
+        <view class='clist2'>
+          <image src='../../img/more.png'></image>
+        </view>
+        <text>等购买了此商品</text>
+      </view>
+    </navigator> -->
+  </view>
+</view>
+<!-- 没有搜索结果 -->
+<view class='searchnull' wx:else>
+  <view>
+    <image src='../../img/asuosou.png'></image>
+  </view>
+  <view class='s-text'>暂无搜索结果...</view>
+</view>

@@ -1,0 +1,21 @@
+<view class='nowself pad20'>
+  当前自提点
+</view>
+<view class='use'>
+  <view class='nowuse'>正在使用</view>
+  <view class='ziti'>自提点：{{address.name}}{{address.tel}}</view>
+  <view class='tihuo'>提货地点：{{address.address}}</view>
+</view>
+<view class='nowself pad20'>
+  历史自提点
+</view>
+<view class='historyuse'>
+  <view class='history1' data-index='{{index}}' data-id="{{item.userId}}" bindtap='choseShop' wx:for="{{historyList}}" wx:key="historyList">
+    <view class='ziti'>自提点：{{item.name}}{{item.tel}}</view>
+    <view class='tihuo'>提货地点：{{item.address}}</view>
+  </view>
+</view>
+<view class='jg130'></view>
+<view class='addselfmention'>
+  <navigator url='/pages/addAddress/addAddress'>新增自提点</navigator>
+</view>

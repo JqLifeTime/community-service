@@ -1,0 +1,306 @@
+/* pages/user/dingdan.wxss */
+page{
+  background: #f8f8f8;
+}
+.c_r1{
+  color: #1D4FD4;
+}
+.swiper-tab{  
+    width: 100%;  
+    border-bottom: 1px solid #eee;  
+    text-align: center;  
+    line-height: 80rpx;
+    background: #fff;  
+    position: fixed;
+    top: 0;  
+    z-index: 999;
+}  
+.swiper-tab-list{  
+  font-size: 12px;  
+  display: inline-block;  
+  width: 25%;  
+  color: #666;  
+  }  
+.on{ 
+  color: #E70012;  
+  border-bottom: 5rpx solid #E70012;
+  }  
+  
+.swiper-box{ 
+  display: block; 
+  height: 100%; 
+  width: 100%; 
+  overflow: scroll; 
+  padding-bottom: 60rpx;
+  }  
+.clearbutton{
+    background: #fff; 
+    display: inline-block;
+    margin:3% 3% 2% 3%; 
+    color: #dd2727;
+    font-size: 14px;
+    width: 94%;
+}
+.shop{
+    background: #fff;
+    margin-bottom: 20rpx;
+
+}
+.shop checkbox{ 
+    margin-top: 27px;
+    }
+.sh_slt{
+    width: 160rpx;
+    height: 160rpx;
+    overflow: hidden;
+    /* border-radius: 10rpx; */
+    margin-right: 20rpx;
+    float: left;
+}
+.sp_text{
+    float: left;
+    line-height: 20px;
+    width: 100%;
+    text-align: left;
+    }
+.sp_tit{
+    width: 100%;
+    overflow: hidden;
+    font-size: 14px;
+}
+.sp_neb{
+    width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    color: #999;
+}
+.sp_jg{
+    width: 100%;
+    overflow: hidden;
+    font-size: 14px;
+    color: #fc0628;
+}
+.dle{
+    color: #999;
+    font-size: 12px;
+    float: right;
+}
+.dle image{
+    width: 18px;
+    height: 18px;
+    vertical-align: sub;
+}
+.jk_bottom{
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    width: 100%; 
+    display: inline-flex;
+    border-bottom: 1px solid #eee; 
+    font-size: 14px;
+    color: #999;       
+}
+.jk_bottom checkbox{
+    margin: 4% 0 4% 4%;    
+}
+.jk_bottom .heji{
+    margin-top: 5.5%;
+    width: 30%; 
+    text-align: right;   
+}
+.jk_bottom .all{
+    margin-top: 5.5%;
+    padding-left: 2%;  
+}
+.jk_bottom .js_button{
+    background: #dd2727;
+    float: right;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    width: 40%;
+    position: absolute;
+    right: 0;
+    line-height: 50px;
+}
+.c_t60{
+    clear: both;
+    height: 1px;
+    padding-top: 48px;
+}
+.blue{
+  color: #42b1ff;
+}
+.mr_5{
+    margin-right: 5px;
+}
+.title_wrap{
+  width: 690rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  padding: 30rpx 30rpx 20rpx 30rpx;
+}
+.cont_wrap{
+  width: 690rpx;
+  background: #fafafa;
+  padding: 10rpx 30rpx;
+}
+.cont_c{
+  width: 300rpx;
+  overflow: hidden;
+}
+.goods_name{
+  width: 100%;
+  font-size: 28rpx;
+  color: #000;
+  line-height: 40rpx;
+  height: 80rpx;
+  text-overflow: ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  margin-top: 8rpx;  
+  overflow: hidden;
+}
+.goods_specs{
+  font-size: 26rpx;
+  line-height: 36rpx;
+  height: 72rpx;
+  text-overflow: ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; 
+  color: #999;
+}
+.cont_r{
+  width: 200rpx;
+  float: right;
+  text-align: right;
+}
+.goods_price{
+  font-size: 24rpx;
+  line-height: 40rpx;
+  color: #000;
+  height: 80rpx;
+  margin-top:8rpx;
+}
+.goods_num{
+  font-size: 24rpx;
+  color: #999;
+  line-height: 40rpx;
+}
+.order_detail{
+  width: 100%;
+  height: 80rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+  line-height: 80rpx;
+  text-align: center;
+  color: #FE4545;
+  font-size: 28rpx;
+}
+.total_wrap{
+  padding: 0 30rpx;
+  height: 80rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+  line-height: 80rpx;
+  text-align: right;
+  font-size: 26rpx;
+}
+.total_price{
+  color: #FE4545;
+  font-size: 24rpx;
+}
+.deal_wrap{
+  height: 64rpx;
+  padding: 20rpx 30rpx;
+}
+.cancel{
+  width: 160rpx;
+  height: 62rpx;
+  border: 1rpx solid #f3f3f3;
+  line-height: 62rpx;
+  text-align: center;
+  margin-left: 20rpx;
+  color: #333;
+  font-size: 24rpx;
+  float: right;
+  border-radius: 10rpx;
+}
+.confim{
+  width: 160rpx;
+  height: 62rpx;
+  border: 1rpx solid #FE4545;
+  line-height: 62rpx;
+  text-align: center;
+  margin-left: 20rpx;
+  color: #FE4545;
+  font-size: 24rpx;
+  float: right;
+  border-radius: 10rpx;
+} 
+/*  加载更多   */
+.weui-loading {
+  margin: 0 5px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-animation: weuiLoading 1s steps(12, end) infinite;
+  animation: weuiLoading 1s steps(12, end) infinite;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgxMDB2MTAwSDB6Ii8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTlFOUU5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTMwKSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iIzk4OTY5NyIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgzMCAxMDUuOTggNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjOUI5OTlBIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDYwIDc1Ljk4IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0EzQTFBMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCA2NSA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNBQkE5QUEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoMTIwIDU4LjY2IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0IyQjJCMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgxNTAgNTQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjQkFCOEI5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA1MCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDMkMwQzEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTE1MCA0NS45OCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDQkNCQ0IiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTEyMCA0MS4zNCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNEMkQyRDIiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDM1IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0RBREFEQSIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgtNjAgMjQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTJFMkUyIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKC0zMCAtNS45OCA2NSkiLz48L3N2Zz4=) no-repeat;
+  background-size: 100%;
+}
+.weui-loadmore {
+  width: 65%;
+  margin: 0 auto;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+.weui-loadmore__tips {
+  display: inline-block;
+  vertical-align: middle;
+}
+.color_1{
+  color: #E70012;
+}
+
+.run{
+	animation:myfirst 1s;
+	-webkit-animation:myfirst 1s; /* Safari and Chrome */
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+@keyframes myfirst
+{
+	from {
+    position: relative;
+    top: 0;
+    right: 0;
+    height: 570rpx;
+  }
+	to {
+    position: relative;
+    top: 0;
+    right: 750rpx;
+    height: 0;
+  }
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+	from {
+    position: relative;
+    top: 0;
+    right: 0;
+    height: 222rpx;
+  }
+	to {
+    position: relative;
+    top: 0;
+    right: 750rpx;
+    height: 0;
+  }
+}

@@ -1,0 +1,70 @@
+/* pages/addAddress/addAddress.wxss */
+.search{
+  display: flex;
+  justify-content: space-between;
+  height: 100rpx;
+  align-items: center;
+}
+.chose{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.chose image{
+  width: 45rpx;
+  height: 45rpx;
+}
+.chose text{
+  font-size: 24rpx;
+  color: #1AAD19;
+}
+.s-inp{
+  width: 480rpx;
+  height: 60rpx;
+}
+.s-inp input{
+  padding-left: 15rpx; 
+  height: 100%;
+  background: #F2F2F2;
+  border-radius: 7rpx;
+  border: 1rpx solid #ccc;
+  font-size: 30rpx;
+}
+.search-s{
+  font-size: 30rpx;
+  padding: 15rpx;
+  color: #999;
+}
+.list1{
+  padding: 30rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #ddd;
+  display: flex;
+}
+.list1>image{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 7rpx;
+  margin-right: 15rpx;
+}
+.list1-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.text-h3{
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.text-h4{
+  font-size: 28rpx;
+  color: #999;
+}
+.null{
+  width: 100%;
+  text-align: center;
+  padding: 80rpx 0;
+  font-size: 30rpx;
+  color: #999;
+}

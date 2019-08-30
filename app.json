@@ -1,0 +1,53 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/login/login",
+    "pages/logs/logs",
+    "pages/cart/cart",
+    "pages/user/user",
+    "pages/productDetail/productDetail",
+    "pages/order/order",
+    "pages/orderlist/orderlist",
+    "pages/comment/comment",
+    "pages/selfmention/selfmention",
+    "pages/addAddress/addAddress",
+    "pages/nearbyAddress/nearbyAddress",
+    "pages/search/search",
+    "pages/orderDetail/orderDetail"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#EB1C27",
+    "navigationBarTitleText": "碗里挑一",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "backgroundColor":"#ffffff",
+    "selectedColor": "#EB1C27",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath":"img/tab-home.png",
+        "selectedIconPath":"img/tab-home1.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "img/tab-cart.png",
+        "selectedIconPath": "img/tab-cart1.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "img/tab-me.png",
+        "selectedIconPath": "img/tab-me1.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  }
+}

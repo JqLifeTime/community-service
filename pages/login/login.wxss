@@ -1,0 +1,69 @@
+/* pages/login/login.wxss */
+.login{
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(#EB1C27, #2726FF); /* 标准的语法 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.login-img>image{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.login-text{
+  font-size: 38rpx;
+  font-weight: 700;
+  color: white;
+  padding: 80rpx 0;
+  text-align: center;
+  line-height: 70rpx;
+}
+.padd20{
+  width: 300rpx;
+  height: 300rpx;
+  padding: 20rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100rpx;
+}
+.padd20-1{
+  width: 260rpx;
+  height: 260rpx;
+  padding: 20rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.padd20-2{
+  width: 220rpx;
+  height: 220rpx;
+  padding: 20rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-btn{
+  width: 500rpx;
+  height: 80rpx;
+  border-radius: 15rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background: #3CB915;
+  font-size: 30rpx;
+  color: white;
+}

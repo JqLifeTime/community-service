@@ -1,0 +1,252 @@
+<!--pages/user/dingdan.wxml-->
+<loading wx:if="{{showLoading}}">加载中</loading>
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" data-otype="" bindtap="swichNav">全部</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" data-otype="0" bindtap="swichNav">待付款</view>
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" data-otype="10" bindtap="swichNav">待提货</view>
+  <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" data-otype="20" bindtap="swichNav">已提货</view>
+</view>
+<view class="c_t60"></view>
+<view current="{{currentTab}}" class="swiper-box">
+
+  <!-- 全部 -->
+  <view wx:if="{{currentTab == 0}}">
+    <view class="search_no" wx:if="{{!orderList0.length}}">
+      <view class="font_14">
+        <image class="scimg" src="/img/adingdan.png"></image>
+      </view>
+      <text>没有可用订单/(ㄒoㄒ)/~~</text>
+    </view>
+    <view class="shop" wx:for="{{orderList0}}" wx:key="item">
+      <view class='title_wrap'>
+        <view class='fl_l c9 f24'>订单编号：{{item.orderNo}}</view>
+        <view class='fl_r c_r1 f24 color_1' wx:if="{{item.orderStatus == 0}}">等待买家付款</view>
+        <view class='fl_r c_r1 f24 chengse' wx:if="{{item.orderStatus == 10}}">等待买家提货</view>
+        <view class='fl_r c_r1 f24 green' wx:if="{{item.orderStatus == 20}}">已提货</view>
+      </view>
+      <view class='clear cont_wrap df'>
+        <navigator url="/pages/productDetail/productDetail?proId={{item.goodsList[0].goodsId}}" hover-class="changestyle">
+          <image class="sh_slt" src="{{imgUrl}}{{item.goodsList[0].goodsThumbs}}"></image>
+        </navigator>
+        <view class='cont_c fl_l'>
+          <view class="goods_name">{{item.goodsList[0].goodsName}}</view>
+          <!-- <view class="goods_specs">规格：{{item.pro_guige ? item.pro_guige:'默认'}}</view> -->
+        </view>
+        <view class='cont_r fl_r'>
+          <view wx:if="{{item.order_type!=2}}" class="goods_price">¥{{item.goodsList[0].realPrice}}</view>
+          <!-- <view wx:if="{{item.order_type==2}}" class="goods_price">{{item.price_yh}} 积分</view> -->
+          <view class="goods_num">×{{item.goodsList[0].goodsNums}}</view>
+        </view>
+      </view>
+      <navigator url="/pages/orderDetail/orderDetail?orderId={{item.orderId}}" class="order_detail">查看全部{{item.goodsList.length}}件商品</navigator>
+      <view class='total_wrap'>
+        <text>合计：</text>
+        <text wx:if="{{item.order_type!=2}}" class='total_price'>¥{{item.totalMoney<0?0.01:item.totalMoney}}</text>
+        <!-- <text wx:if="{{item.order_type==2}}" class='total_price'>{{item.price}} 积分</text> -->
+      </view>
+      <view class='deal_wrap' wx:if="{{item.orderStatus == 20}}">
+        <view class='cancel'>已完成</view>
+      </view>
+      <view class='deal_wrap' wx:if="{{item.orderStatus == 10}}">
+        <!-- <navigator url="tuihuo?orderId={{item.id}}" class='confim' data-orderid="{{item.id}}" data-ordersn="{{item.order_sn}}">申请退款</navigator> -->
+        <view class='confim'>待提货</view>
+      </view>
+      <view class='deal_wrap' wx:if="{{item.orderStatus == 0}}">
+        <view class='confim' bindtap="payOrderByWechat" data-orderid="{{item.orderId}}" data-name="{{item.userName}}" data-tel="{{item.userPhone}}" data-add="{{item.userAddress}}" data-total="{{item.totalMoney}}">确认付款</view>
+        <view class='cancel' bindtap="removeOrder" data-index="{{index}}" data-orderId="{{item.orderId}}">取消订单</view>
+      </view>
+    </view>
+    <view class="weui-loadmore" hidden="{{isHideLoadMore[0]}}">
+      <view wx:if="{{control[0]}}" class="weui-loading"></view>
+      <view class="weui-loadmore__tips">{{loadingval[0]}}</view>
+    </view>
+  </view>
+
+
+  <!-- 待付款 -->
+  <view wx:if="{{currentTab == 1}}">
+    <view class="search_no" wx:if="{{!orderList1.length}}">
+      <view class="font_14">
+        <image class="scimg" src="/img/adingdan.png"></image>
+      </view>
+      <text>没有可用订单~~</text>
+    </view>
+    <view class="shop {{runid==item.id?'run':''}}" wx:for="{{orderList1}}" wx:key="item">
+      <view class='title_wrap'>
+        <view class='fl_l c9 f24'>订单编号：{{item.orderNo}}</view>
+        <view class='fl_r c_r1 f24 color_1'>等待买家付款</view>
+      </view>
+      <view class='clear cont_wrap df'>
+        <navigator url="/pages/productDetail/productDetail?proId={{item.goodsList[0].goodsId}}" hover-class="changestyle">
+          <image class="sh_slt" src="{{imgUrl}}{{item.goodsList[0].goodsThumbs}}"></image>
+        </navigator>
+        <view class='cont_c fl_l'>
+          <view class="goods_name">{{item.goodsList[0].goodsName}}</view>
+          <!-- <view class="goods_specs">规格：{{item.pro_guige ? item.pro_guige:'默认'}}</view> -->
+        </view>
+        <view class='cont_r fl_r'>
+          <view wx:if="{{item.order_type!=2}}" class="goods_price">¥{{item.goodsList[0].realPrice}}</view>
+          <!-- <view wx:if="{{item.order_type==2}}" class="goods_price">{{item.realPrice}} 积分</view> -->
+          <view class="goods_num">×{{item.goodsList[0].goodsNums}}</view>
+        </view>
+      </view>
+      <navigator url="/pages/orderDetail/orderDetail?type=0&orderId={{item.orderId}}" class="order_detail">查看全部{{item.goodsList.length}}件商品</navigator>
+      <view class='total_wrap'>
+        <text>合计：</text>
+        <text wx:if="{{item.order_type!=2}}" class='total_price'>¥{{item.totalMoney<0?0.01:item.totalMoney}}</text>
+        <!-- <text wx:if="{{item.order_type==2}}" class='total_price'>{{item.price}} 积分</text> -->
+      </view>
+      <view class='deal_wrap'>
+        <view class='confim' bindtap="payOrderByWechat" data-orderid="{{item.orderId}}" data-name="{{item.userName}}" data-tel="{{item.userPhone}}" data-add="{{item.userAddress}}" data-total="{{item.totalMoney}}">确认付款</view>
+        <view class='cancel' bindtap="removeOrder" data-index="{{index}}" data-orderId="{{item.orderId}}">取消订单</view>
+      </view>
+    </view>
+
+    <view class="weui-loadmore" hidden="{{isHideLoadMore[1]}}">
+      <view wx:if="{{control[1]}}" class="weui-loading"></view>
+      <view class="weui-loadmore__tips">{{loadingval[1]}}</view>
+    </view>
+
+  </view>
+
+
+  <!-- 待提货 -->
+  <view wx:if="{{currentTab == 2}}">
+    <view class="search_no" wx:if="{{!orderList2.length}}">
+      <view class="font_14">
+        <image class="scimg" src="/img/adingdan.png"></image>
+      </view>
+      <text>没有可用订单/(ㄒoㄒ)/~~</text>
+    </view>
+    <view class="shop" wx:for="{{orderList2}}" wx:key="item">
+      <view class='title_wrap'>
+        <view class='fl_l c9 f24'>订单编号：{{item.orderNo}}</view>
+        <view class='fl_r c_r1 f24 chengse'>等待买家提货</view>
+      </view>
+      <view class='clear cont_wrap df'>
+        <navigator url="/pages/productDetail/productDetail?proId={{item.goodsList[0].goodsId}}" hover-class="changestyle">
+          <image class="sh_slt" src="{{imgUrl}}{{item.goodsList[0].goodsThumbs}}"></image>
+        </navigator>
+        <view class='cont_c fl_l'>
+          <view class="goods_name">{{item.goodsList[0].goodsName}}</view>
+          <!-- <view class="goods_specs">规格：{{item.pro_guige ? item.pro_guige:'默认'}}</view> -->
+        </view>
+        <view class='cont_r fl_r'>
+          <view wx:if="{{item.order_type!=2}}" class="goods_price">¥{{item.goodsList[0].realPrice}}</view>
+          <!-- <view wx:if="{{item.order_type==2}}" class="goods_price">{{item.price_yh}} 积分</view> -->
+          <view class="goods_num">×{{item.goodsList[0].goodsNums}}</view>
+        </view>
+      </view>
+      <navigator url="/pages/orderDetail/orderDetail?type=10&orderId={{item.orderId}}" class="order_detail">查看全部{{item.goodsList.length}}件商品</navigator>
+      <view class='total_wrap'>
+        <text>合计：</text>
+        <text wx:if="{{item.order_type!=2}}" class='total_price'>¥{{item.totalMoney<0?0.01:item.totalMoney}}</text>
+        <!-- <text wx:if="{{item.order_type==2}}" class='total_price'>{{item.price}} 积分</text> -->
+      </view>
+      <view class='deal_wrap'>
+        <view class='confim'>待提货</view>
+      </view>
+    </view>
+    <view class="weui-loadmore" hidden="{{isHideLoadMore[2]}}">
+      <view wx:if="{{control[2]}}" class="weui-loading"></view>
+      <view class="weui-loadmore__tips">{{loadingval[2]}}</view>
+    </view>
+
+  </view>
+
+
+  <!-- 已提货 -->
+  <view wx:if="{{currentTab == 3}}">
+
+    <view class="search_no" wx:if="{{!orderList3.length}}">
+      <view class="font_14">
+        <image class="scimg" src="/img/adingdan.png"></image>
+      </view>
+      <text>没有可用订单/(ㄒoㄒ)/~~</text>
+    </view>
+    <view class="shop" wx:for="{{orderList3}}" wx:key="item">
+      <view class='title_wrap'>
+        <view class='fl_l c9 f24'>订单编号：{{item.orderNo}}</view>
+        <view class='fl_r c_r1 f24 green'>已提货</view>
+      </view>
+      <view class='clear cont_wrap df'>
+        <navigator url="/pages/productDetail/productDetail?proId={{item.goodsList[0].goodsId}}" hover-class="changestyle">
+          <image class="sh_slt" src="{{imgUrl}}{{item.goodsList[0].goodsThumbs}}"></image>
+        </navigator>
+        <view class='cont_c fl_l'>
+          <view class="goods_name">{{item.goodsList[0].goodsName}}</view>
+          <!-- <view class="goods_specs">规格：{{item.pro_guige ? item.pro_guige:'默认'}}</view> -->
+        </view>
+        <view class='cont_r fl_r'>
+          <view wx:if="{{item.order_type!=2}}" class="goods_price">¥{{item.goodsList[0].realPrice}}</view>
+          <!-- <view wx:if="{{item.order_type==2}}" class="goods_price">{{item.price_yh}} 积分</view> -->
+          <view class="goods_num">×{{item.goodsList[0].goodsNums}}</view>
+        </view>
+      </view>
+      <navigator url="/pages/orderDetail/orderDetail?type=20&orderId={{item.orderId}}" class="order_detail">查看全部{{item.goodsList.length}}件商品</navigator>
+      <view class='total_wrap'>
+        <text>合计：</text>
+        <text wx:if="{{item.order_type!=2}}" class='total_price'>¥{{item.totalMoney<0?0.01:item.totalMoney}}</text>
+        <!-- <text wx:if="{{item.order_type==2}}" class='total_price'>{{item.price}} 积分</text> -->
+      </view>
+      <!-- <view class='deal_wrap'>
+        <view class='confim' bindtap="recOrder" data-order-id="{{item.id}}">确认收货</view>
+        <navigator url="tuihuo?orderId={{item.id}}" class='confim'>申请退款</navigator>
+      </view> -->
+      <view class='deal_wrap'>
+        <view class='cancel'>已完成</view>
+      </view>
+    </view>
+
+    <view class="weui-loadmore" hidden="{{isHideLoadMore[3]}}">
+      <view wx:if="{{control[3]}}" class="weui-loading"></view>
+      <view class="weui-loadmore__tips">{{loadingval[3]}}</view>
+    </view>
+
+  </view>
+
+
+  <!-- 退款/售后 -->
+  <!-- <view wx:if="{{currentTab == 4}}">
+    <view class="search_no" wx:if="{{!orderList4.length}}">
+      <view class="font_14">
+        <image class="scimg" src="/img/adingdan.png"></image>
+      </view>
+      <text>没有可用订单/(ㄒoㄒ)/~~</text>
+    </view>
+
+    <view class="shop" wx:for="{{orderList4}}" wx:key="item">
+      <view class='title_wrap'>
+        <view class='fl_l c9 f24'>订单编号：{{item.order_sn}}</view>
+        <view class='fl_r c_r1 f24'></view>
+      </view>
+      <view class='clear cont_wrap df'>
+        <navigator url="../product/detail?proId={{item.pid}}" hover-class="changestyle">
+          <image class="sh_slt" src="{{item.photo_x}}"></image>
+        </navigator>
+        <view class='cont_c fl_l'>
+          <view class="goods_name">{{item.name}}</view>
+          <view class="goods_specs">规格：{{item.pro_guige ? item.pro_guige:'默认'}}</view>
+        </view>
+        <view class='cont_r fl_r'>
+          <view wx:if="{{item.order_type!=2}}" class="goods_price">¥{{item.price_yh}}</view>
+          <view wx:if="{{item.order_type==2}}" class="goods_price">{{item.price_yh}} 积分</view>
+          <view class="goods_num">×{{item.pro_count}}</view>
+        </view>
+      </view>
+      <navigator url="../order/detail?type=4&orderId={{item.id}}" class="order_detail">查看全部{{item.product_num}}件商品</navigator>
+      <view class='total_wrap'>
+        <text>合计：</text>
+        <text wx:if="{{item.order_type!=2}}" class='total_price'>¥{{item.price<0?0.01:item.price}}</text>
+        <text wx:if="{{item.order_type==2}}" class='total_price'>{{item.price}} 积分</text>
+      </view>
+      <view class='deal_wrap'>
+        <view class='cancel'>{{item.desc}}</view>
+      </view>
+    </view>
+    <view class="weui-loadmore" hidden="{{isHideLoadMore[4]}}">
+      <view wx:if="{{control[4]}}" class="weui-loading"></view>
+      <view class="weui-loadmore__tips">{{loadingval[4]}}</view>
+    </view>
+  </view> -->
+</view>
